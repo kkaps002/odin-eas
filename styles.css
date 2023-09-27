@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    min-height: 100vh; /* Ensure the content fills the viewport height */
+    
+}
+
+.grid-container {
+    display: flex;
+    gap: 5px;
+    border: 2px solid red;
+}
+
+.block {
+    color: aquamarine;
+    
+}
+
+.block:hover {
+    background-color: green;
+}
+
