@@ -1,23 +1,25 @@
 
 // create column and row divs and fill those with 16 blocks , flex direction to set direction 
-const gridContainer = document.querySelector(".grid-container")
+const gridContainer = document.querySelector(".grid-container");
 const numbtn = document.querySelector("#numbtn");
-
+const slider = document.querySelector("#slider");
+const sliderValue = document.querySelector("#sliderValue");
 
 let numofboxes = 16; // init with default value
+sliderValue.textContent = `Dimensions:\n${numofboxes} X ${numofboxes}`; // initialise the dimensions display
 makeBoxes(); //generate initial 16 box grid 
 
-numbtn.addEventListener("click", function (){ //click checks what the number of boxes is and behaves accordingly
-    if(numofboxes === 64){ // maximum number of boxes
-        gridContainer.innerHTML = ""; // clear grid
-        numofboxes = 16; // reset to 16 
-        makeBoxes();
+//numbtn.addEventListener("click", function (){ //click checks what the number of boxes is and behaves accordingly
+slider.addEventListener("input", function() {
+    numofboxes = slider.value; 
+    sliderValue.textContent = `Dimensions:\n${numofboxes} X ${numofboxes}`;
+
+    if(numofboxes > 100){ // maximum number of boxes
+        numofboxes = 100; 
     }
-    else{
         gridContainer.innerHTML = ""; // clear grid
-        numofboxes *= 2; // duplicate num of boxes to make 
         makeBoxes(); // and create 
-    }
+    
 }); 
 
 function makeBoxes() { // 
