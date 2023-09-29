@@ -19,16 +19,10 @@ body {
 
 .block {
     display: flex;
-    flex: 1;
-    color: aquamarine;
-    
+    flex: 1;   
 }
 
-.block:hover {
-    background-color: green;
-}
-
-.slider-container {
+.slider-container, .btn-container {
     background: yellow;
     border: 2px solid black;
     color: black;
@@ -70,3 +64,17 @@ body {
     white-space: pre-line; /*allow line breaks */
   }
   
+  #btnRandom {
+    font-weight: lighter;
+    background-color: white;
+    opacity: 0.8;
+    transition: opacity .2s;
+  }
+
+  #btnRandom:hover {
+    opacity: 1;
+  }
+
+  #btnRandom:active {
+    background-color:red;
+  }

@@ -4,8 +4,12 @@ const gridContainer = document.querySelector(".grid-container");
 const numbtn = document.querySelector("#numbtn");
 const slider = document.querySelector("#slider");
 const sliderValue = document.querySelector("#sliderValue");
+const btnRandom = document.querySelector("#btnRandom");
+const btnText = document.querySelector("#btnText");
 
 let numofboxes = 16; // init with default value
+let colourMode = "normal";
+
 sliderValue.textContent = `Dimensions:\n${numofboxes} X ${numofboxes}`; // initialise the dimensions display
 makeBoxes(); //generate initial 16 box grid 
 
@@ -21,6 +25,16 @@ slider.addEventListener("input", function() {
         makeBoxes(); // and create 
     
 }); 
+btnRandom.addEventListener("click", function(){
+    if (colourMode==="normal"){
+        colourMode = "random";
+    }
+    else if (colourMode=== "random"){
+        colourMode = "normal";
+    }
+    console.log(colourMode);
+    btnText.textContent = colourMode;
+})
 
 function makeBoxes() { // 
     for (let j =0; j < numofboxes ; j++) {  // create a column container 
@@ -44,13 +58,30 @@ function makeBoxes() { //
             newBlock.style.border = "1px solid black";
             newBlock.classList.add("block"); // Add the "block" class to created divs for css styling 
     
-    
             newBlock.addEventListener("mouseover", function(){
-                newBlock.style.background = "grey";
+                if(colourMode==="normal"){
+                    newBlock.style.backgroundColor = "grey";
+                }
+                else if(colourMode ==="random"){
+                    console.log("event");
+                    randomColour();
+
+                }
+                
             })
+            //function defined within the scope of makeBoxes to read newBlock variable
+            function randomColour (){
+                let rgbValue1 = Math.floor(Math.random() * 256);
+                let rgbValue2 = Math.floor(Math.random() * 256);
+                let rgbValue3 = Math.floor(Math.random() * 256);
+                newBlock.style.backgroundColor = `rgb(${rgbValue1},${rgbValue2},${rgbValue3})`;
+            }
         }
     }
+    
 }
+
+
 
 
 
