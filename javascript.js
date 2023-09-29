@@ -30,9 +30,11 @@ btnRandom.addEventListener("click", function(){
         colourMode = "random";
     }
     else if (colourMode=== "random"){
-        colourMode = "normal";
+        colourMode = "shadow";
     }
-    console.log(colourMode);
+    else {
+        colourMode ="normal";
+    }
     btnText.textContent = colourMode;
 })
 
@@ -55,19 +57,25 @@ function makeBoxes() { //
             columnContainer.appendChild(newBlock);
             
             
+
             newBlock.style.border = "1px solid black";
+
+            let blockShade = 0; // block opacity
             newBlock.classList.add("block"); // Add the "block" class to created divs for css styling 
     
             newBlock.addEventListener("mouseover", function(){
-                if(colourMode==="normal"){
-                    newBlock.style.backgroundColor = "grey";
+                if(colourMode==="shadow"){ 
+                    if (blockShade <1){
+                        blockShade += 0.1;
+                    }    
+                    newBlock.style.backgroundColor = `rgba(0,0,0,${blockShade})`;
                 }
                 else if(colourMode ==="random"){
-                    console.log("event");
                     randomColour();
-
                 }
-                
+                else {
+                    newBlock.style.backgroundColor ="black";
+                }  
             })
             //function defined within the scope of makeBoxes to read newBlock variable
             function randomColour (){
