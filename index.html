@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Etch-A-Sketch!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
     <script src="javascript.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <div class="grid-container"></div> 
-    <div class="settings-container">
-        <div class ="slider-container">
-            <input type="range" min="4" max="100" value="16" id="slider">
-            <div id="sliderValue"></div>
-        </div>
-        <div class="btn-container">
-            <button type="button" id="btnRandom"> Colour Mode</button>
-            <span id="btnText"> normal</span>
+    <div id="global-container">
+        <div class="grid-container"></div> 
+        <div class="settings-container">
+            <div class ="slider-container">
+                <input type="range" min="4" max="100" value="16" id="slider">
+                <div id="sliderValue"></div>
+            </div>
+            <div class="btn-container">
+                <button type="button" id="btnRandom"> Colour Mode</button>
+                <span id="btnText"> normal</span>
+            </div>
         </div>
     </div>
-    
-    
 </body>
 </html>
