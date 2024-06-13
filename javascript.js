@@ -13,7 +13,6 @@ let colourMode = "normal";
 sliderValue.textContent = `Dimensions:\n${numofboxes} X ${numofboxes}`; // initialise the dimensions display
 makeBoxes(); //generate initial 16 box grid 
 
-//numbtn.addEventListener("click", function (){ //click checks what the number of boxes is and behaves accordingly
 slider.addEventListener("input", function() {
     numofboxes = slider.value; 
     sliderValue.textContent = `Dimensions:\n${numofboxes} X ${numofboxes}`;
@@ -56,8 +55,6 @@ function makeBoxes() { //
             // Append the new <div> to a container element 
             columnContainer.appendChild(newBlock);
             
-            
-
             newBlock.style.border = "1px solid black";
 
             let blockShade = 0; // block opacity
