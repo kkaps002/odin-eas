@@ -101,7 +101,7 @@ function helloMessage (i,j,newBlock) {
             // i - vertical
             
             let vertLine = (i == 3 || i == 4 || i == 5 || i == 6 || i == 7);
-
+            
 
 
             if (vertLine && j == 0 || // letter H
@@ -118,10 +118,26 @@ function helloMessage (i,j,newBlock) {
                 vertLine && j == 13 || // letter O
                 i == 3 && j == 14 ||
                 i == 7 && j == 14 ||
-                vertLine && j == 15 )
+                vertLine && j == 15|| 
+                i == 10 && j == 6 || // first eye
+                i == 11 && j == 6 ||
+                i == 10 && j == 9 || // second eye
+                i == 11 && j == 9 ||
+                i ==13 && j == 4 ||//mouth
+                i == 14 && j == 4 ||
+                i == 14 && j == 5 ||
+                i == 14 && j == 6 ||
+                i == 14 && j == 7 ||
+                i == 14 && j == 8 ||
+                i == 14 && j == 9 ||
+                i == 14 && j == 10||
+                i == 14 && j == 11||
+                i == 13 && j == 11
+            )
             {
-                newBlock.style.backgroundColor = `rgba(0,0,0,1)`;
+                newBlock.style.backgroundColor = `rgba(0,0,255,1)`;
             }
+            
         }
 
 
