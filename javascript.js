@@ -10,6 +10,8 @@ const btnText = document.querySelector("#btnText");
 let numofboxes = 16; // init with default value
 let colourMode = "normal";
 
+let firstLoad = true; //this prevents bug where the hellomessage would be printed again everytime the dimensions change
+
 sliderValue.textContent = `Dimensions:\n${numofboxes} X ${numofboxes}`; // initialise the dimensions display
 makeBoxes(); //generate initial 16 box grid 
 
@@ -47,7 +49,7 @@ function makeBoxes() { //
         columnContainer.style.margin = "0px";
         gridContainer.appendChild(columnContainer);
     
-        //fill an individual column container with blocks
+        //fill an individual row container with blocks
         for (let i = 0; i < numofboxes; i++) { 
             // Create a new <div> element
             const newBlock = document.createElement('div');
@@ -59,7 +61,13 @@ function makeBoxes() { //
 
             let blockShade = 0; // block opacity
             newBlock.classList.add("block"); // Add the "block" class to created divs for css styling 
-    
+
+
+            // ------------------------------ HELLO MESSAGE TO PRINT WHEN PAGE FIRST LOADS
+            if (firstLoad){
+                helloMessage(i,j,newBlock);
+            }
+                
             newBlock.addEventListener("mouseover", function(){
                 if(colourMode==="shadow"){ 
                     if (blockShade <1){
@@ -83,10 +91,38 @@ function makeBoxes() { //
             }
         }
     }
-    
+    firstLoad = false;  // set to false after first time running 
 }
 
+function helloMessage (i,j,newBlock) {
 
+            //this code only executes once when firstLoad is true
+            // j - horziontal
+            // i - vertical
+            
+            let vertLine = (i == 3 || i == 4 || i == 5 || i == 6 || i == 7);
+
+
+
+            if (vertLine && j == 0 || // letter H
+                i == 5 && j == 1 ||
+                vertLine && j == 2 ||
+                vertLine && j == 4 || // letter E
+                i == 3 && j == 5 ||
+                i == 5 && j == 5 ||
+                i == 7 && j == 5 || 
+                vertLine && j == 7 || // letter L
+                i == 7 && j == 8 ||
+                vertLine && j == 10 || // letter L
+                i == 7 && j == 11 || 
+                vertLine && j == 13 || // letter O
+                i == 3 && j == 14 ||
+                i == 7 && j == 14 ||
+                vertLine && j == 15 )
+            {
+                newBlock.style.backgroundColor = `rgba(0,0,0,1)`;
+            }
+        }
 
 
 
